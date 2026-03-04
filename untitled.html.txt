@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mohit 💕 Sriju</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --pink: #ff6b9d;
+      --peach: #ffb347;
+      --mint: #a8edea;
+      --lavender: #c3b1e1;
+      --cream: #fff8f0;
+      --red: #ff4d6d;
+      --soft-pink: #ffe0ec;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background: var(--cream);
+      overflow-x: hidden;
+      cursor: none;
+    }
+
+    /* Custom cursor */
+    .cursor {
+      position: fixed;
+      width: 24px; height: 24px;
+      pointer-events: none;
+      z-index: 9999;
+      font-size: 20px;
+      transform: translate(-50%, -50%);
+      transition: transform 0.1s;
+    }
+
+    /* Floating hearts bg */
+    .hearts-bg {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .heart-float {
+      position: absolute;
+      bottom: -60px;
+      font-size: 1.4rem;
+      animation: floatUp linear infinite;
+      opacity: 0.4;
+    }
+
+    @keyframes floatUp {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+      100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* ---- HERO ---- */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      z-index: 1;
+      background: linear-gradient(135deg, #ffe0ec 0%, #fff0fa 40%, #e8f8ff 100%);
+    }
+
+    .flag-banner {
+      font-size: 2rem;
+      letter-spacing: 8px;
+      margin-bottom: 10px;
+      animation: wiggle 2s ease-in-out infinite;
+    }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50%       { transform: rotate(3deg); }
+    }
+
+    .subtitle-tag {
+      background: white;
+      border: 2px dashed var(--pink);
+      border-radius: 30px;
+      padding: 6px 20px;
+      font-size: 0.85rem;
+      color: var(--pink);
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: 1px;
+    }
+
+    .hero h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(2.6rem, 8vw, 5.5rem);
+      line-height: 1.15;
+      color: var(--red);
+      text-shadow: 4px 4px 0 #ffb3c6, 8px 8px 0 rgba(255,77,109,0.15);
+      animation: popIn 0.8s cubic-bezier(0.34,1.56,0.64,1) both;
+    }
+
+    @keyframes popIn {
+      0%   { transform: scale(0.5); opacity: 0; }
+      100% { transform: scale(1);   opacity: 1; }
+    }
+
+    .hero h1 span { color: var(--pink); }
+
+    .heart-big {
+      font-size: 5rem;
+      display: block;
+      margin: 10px 0;
+      animation: heartbeat 1.2s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      14%       { transform: scale(1.25); }
+      28%       { transform: scale(1); }
+      42%       { transform: scale(1.15); }
+      56%       { transform: scale(1); }
+    }
+
+    .scroll-hint {
+      margin-top: 36px;
+      font-size: 0.9rem;
+      color: #c083a0;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(8px); }
+    }
+
+    /* ---- SECTION WRAPPER ---- */
+    section {
+      position: relative;
+      z-index: 1;
+      padding: 60px 20px;
+    }
+
+    .section-title {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      text-align: center;
+      margin-bottom: 36px;
+      color: var(--red);
+    }
+
+    /* ---- LETTER SECTION ---- */
+    .letter-section {
+      background: linear-gradient(160deg, #fff0f7, #fff8ee);
+    }
+
+    .letter-card {
+      max-width: 680px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 24px;
+      padding: 40px 44px;
+      box-shadow: 0 8px 40px rgba(255,107,157,0.15), 0 2px 8px rgba(0,0,0,0.06);
+      border: 2px solid #ffe0ec;
+      position: relative;
+      line-height: 1.85;
+      font-size: 1.05rem;
+      color: #5a3a4a;
+    }
+
+    .letter-card::before {
+      content: '💌';
+      font-size: 2.5rem;
+      position: absolute;
+      top: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: white;
+      padding: 0 10px;
+    }
+
+    .letter-card p { margin-bottom: 14px; }
+    .letter-card .sign { 
+      margin-top: 24px; 
+      font-family: 'Pacifico', cursive; 
+      font-size: 1.3rem; 
+      color: var(--pink); 
+    }
+
+    /* ---- REASONS SECTION ---- */
+    .reasons-section {
+      background: linear-gradient(135deg, #e8f8ff, #f0e8ff);
+    }
+
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .reason-card {
+      background: white;
+      border-radius: 20px;
+      padding: 24px 20px;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(180,130,200,0.15);
+      border: 2px solid transparent;
+      transition: transform 0.3s, border-color 0.3s;
+      animation: fadeSlideUp 0.6s both;
+    }
+
+    .reason-card:hover {
+      transform: translateY(-6px) rotate(1deg);
+      border-color: var(--lavender);
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .reason-card .emoji { font-size: 2.4rem; margin-bottom: 10px; display: block; }
+    .reason-card p { font-size: 0.95rem; color: #6a4060; font-weight: 700; }
+
+    /* ---- MEMORY SECTION ---- */
+    .memory-section {
+      background: linear-gradient(160deg, #fff8f0, #ffe8f5);
+    }
+
+    .memory-box {
+      max-width: 600px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .memory-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: white;
+      border-radius: 18px;
+      padding: 20px 24px;
+      box-shadow: 0 4px 16px rgba(255,107,157,0.1);
+      border-left: 4px solid var(--pink);
+      animation: fadeSlideUp 0.6s both;
+    }
+
+    .memory-item .mem-emoji { font-size: 2rem; flex-shrink: 0; }
+    .memory-item p { color: #5a3a4a; font-weight: 600; font-size: 0.98rem; line-height: 1.6; }
+
+    /* ---- PROMISE SECTION ---- */
+    .promise-section {
+      background: linear-gradient(135deg, #ffeaf4, #e8f4ff);
+      text-align: center;
+    }
+
+    .promise-box {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 28px;
+      padding: 48px 40px;
+      box-shadow: 0 10px 50px rgba(255,77,109,0.12);
+      border: 2px dashed #ffb3c6;
+      position: relative;
+    }
+
+    .promise-box::before, .promise-box::after {
+      content: '🌸';
+      font-size: 2rem;
+      position: absolute;
+    }
+
+    .promise-box::before { top: 16px; left: 20px; }
+    .promise-box::after  { bottom: 16px; right: 20px; }
+
+    .promise-box p {
+      font-size: 1.1rem;
+      color: #5a3a4a;
+      line-height: 1.9;
+      font-weight: 600;
+    }
+
+    .promise-box .big-text {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(1.5rem, 5vw, 2.4rem);
+      color: var(--red);
+      margin-top: 24px;
+      display: block;
+    }
+
+    /* ---- FOOTER ---- */
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(135deg, #ff6b9d, #ff4d6d);
+      color: white;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(1.8rem, 5vw, 3rem);
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+      margin-bottom: 10px;
+    }
+
+    footer p { font-size: 1rem; opacity: 0.85; }
+
+    .nepali-note {
+      margin-top: 16px;
+      font-size: 1.3rem;
+      letter-spacing: 3px;
+    }
+
+    /* Confetti pop */
+    .confetti-wrapper {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    .confetti-piece {
+      position: absolute;
+      top: -20px;
+      width: 10px; height: 10px;
+      border-radius: 2px;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+      0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor">💖</div>
+
+  <!-- Floating hearts background -->
+  <div class="hearts-bg" id="heartsBg"></div>
+
+  <!-- Confetti wrapper -->
+  <div class="confetti-wrapper" id="confetti"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="flag-banner">🇳🇵 🇳🇵 🇳🇵</div>
+    <div class="subtitle-tag">✨ A little something for someone special ✨</div>
+    <h1>Mohit<br/><span>&amp; Sriju</span></h1>
+    <span class="heart-big">💕</span>
+    <p style="color:#c083a0; font-size:1.1rem; font-weight:700; margin-bottom:6px;">
+      Two Nepali hearts, one college, endless love 🏔️
+    </p>
+    <div class="scroll-hint">scroll down ↓</div>
+  </section>
+
+  <!-- LETTER -->
+  <section class="letter-section">
+    <h2 class="section-title">💌 A Letter For You</h2>
+    <div class="letter-card">
+      <p>My dearest <strong>Sriju</strong>,</p>
+      <p>
+        Out of all the people in our college, fate somehow brought two Nepali souls together — 
+        and I think that's the most beautiful coincidence of my life. 💫
+      </p>
+      <p>
+        Every day with you feels like a warm cup of chiya on a cold morning ☕ — 
+        comforting, sweet, and something I never want to miss.
+      </p>
+      <p>
+        You make the ordinary days feel extraordinary. Your laugh, your heart, 
+        the way you are — everything about you makes my world so much brighter. 🌟
+      </p>
+      <p>
+        We walked the same halls, shared the same world, and somehow I found you — 
+        the most wonderful person I know.
+      </p>
+      <p>Timro laagi sabai khushi chahanchhu. 🏔️❤️</p>
+      <p>Always yours,</p>
+      <div class="sign">— Mohit 💖</div>
+    </div>
+  </section>
+
+  <!-- REASONS -->
+  <section class="reasons-section">
+    <h2 class="section-title">💛 Why I Love You</h2>
+    <div class="reasons-grid">
+      <div class="reason-card" style="animation-delay:0s">
+        <span class="emoji">😊</span>
+        <p>Your smile lights up the whole room</p>
+      </div>
+      <div class="reason-card" style="animation-delay:0.1s">
+        <span class="emoji">🏔️</span>
+        <p>We share the same proud Nepali roots</p>
+      </div>
+      <div class="reason-card" style="animation-delay:0.2s">
+        <span class="emoji">📚</span>
+        <p>We grind together at the same college</p>
+      </div>
+      <div class="reason-card" style="animation-delay:0.3s">
+        <span class="emoji">🌸</span>
+        <p>You're kind, caring & genuinely beautiful</p>
+      </div>
+      <div class="reason-card" style="animation-delay:0.4s">
+        <span class="emoji">🌙</span>
+        <p>You make every ordinary moment magical</p>
+      </div>
+      <div class="reason-card" style="animation-delay:0.5s">
+        <span class="emoji">💬</span>
+        <p>Talking to you always feels like home</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMORIES -->
+  <section class="memory-section">
+    <h2 class="section-title">🎀 Our Little World</h2>
+    <div class="memory-box">
+      <div class="memory-item" style="animation-delay:0.1s">
+        <div class="mem-emoji">🏫</div>
+        <p>Same college, same canteen, same chaotic corridors — and somehow I always found you in the crowd.</p>
+      </div>
+      <div class="memory-item" style="animation-delay:0.2s">
+        <div class="mem-emoji">🇳🇵</div>
+        <p>Two Nepali hearts far from home, but together it never feels like we're far from anything.</p>
+      </div>
+      <div class="memory-item" style="animation-delay:0.3s">
+        <div class="mem-emoji">☀️</div>
+        <p>Even the boring college days feel like a little adventure when you're around.</p>
+      </div>
+      <div class="memory-item" style="animation-delay:0.4s">
+        <div class="mem-emoji">💫</div>
+        <p>From classmates to something so much more — this is my favourite story.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROMISE -->
+  <section class="promise-section">
+    <h2 class="section-title">🌷 My Promise</h2>
+    <div class="promise-box">
+      <p>
+        I promise to make you smile on the hard days, to be your person through all of it,
+        and to love you the way you deserve — every single day. 🌸
+        <br/><br/>
+        You're my favourite part of this chapter, Sriju.
+        I wouldn't trade this for anything. 💕
+      </p>
+      <span class="big-text">Timro Mohit 💖</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <h2>Mohit 💕 Sriju</h2>
+    <p>Two Nepali souls, one beautiful love story 🏔️</p>
+    <div class="nepali-note">🇳🇵 जय नेपाल 🇳🇵</div>
+  </footer>
+
+  <script>
+    // Custom cursor
+    const cursor = document.getElementById('cursor');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top  = e.clientY + 'px';
+    });
+
+    // Floating hearts
+    const heartsContainer = document.getElementById('heartsBg');
+    const heartChars = ['💕','💗','💖','💓','🌸','✨','💫','🌷'];
+    for (let i = 0; i < 22; i++) {
+      const h = document.createElement('span');
+      h.className = 'heart-float';
+      h.textContent = heartChars[Math.floor(Math.random() * heartChars.length)];
+      h.style.left = Math.random() * 100 + 'vw';
+      h.style.fontSize = (0.9 + Math.random() * 1.4) + 'rem';
+      h.style.animationDuration = (7 + Math.random() * 10) + 's';
+      h.style.animationDelay    = (Math.random() * 10) + 's';
+      heartsContainer.appendChild(h);
+    }
+
+    // Confetti on load
+    const confettiWrapper = document.getElementById('confetti');
+    const colors = ['#ff6b9d','#ffb347','#a8edea','#c3b1e1','#ff4d6d','#ffe066'];
+    function launchConfetti() {
+      for (let i = 0; i < 60; i++) {
+        const piece = document.createElement('div');
+        piece.className = 'confetti-piece';
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.background = colors[Math.floor(Math.random() * colors.length)];
+        piece.style.width  = (6 + Math.random() * 8) + 'px';
+        piece.style.height = (6 + Math.random() * 8) + 'px';
+        piece.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
+        piece.style.animationDuration = (2 + Math.random() * 3) + 's';
+        piece.style.animationDelay    = (Math.random() * 1.5) + 's';
+        confettiWrapper.appendChild(piece);
+        setTimeout(() => piece.remove(), 5000);
+      }
+    }
+    launchConfetti();
+    setTimeout(launchConfetti, 3000);
+  </script>
+</body>
+</html>
