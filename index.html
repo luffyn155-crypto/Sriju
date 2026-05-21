@@ -1,55 +1,61 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ne">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>One Last Chance — Srijana</title>
+  <title>Srijana — Ek Palta Maaf Gara</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Sacramento&family=Jost:wght@300;400&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root {
-      --cream: #fdf6ee; --blush: #e8c4c4; --rose: #c0706e;
-      --deep: #7a3f3f; --ink: #3b2323; --gold: #c9a96e;
-    }
+    :root { --cream: #fdf6ee; --blush: #e8c4c4; --rose: #c0706e; --deep: #7a3f3f; --ink: #3b2323; --gold: #c9a96e; }
     html { scroll-behavior: smooth; }
     body { background: var(--cream); color: var(--ink); font-family: 'Jost', sans-serif; font-weight: 300; overflow-x: hidden; }
     .petals { position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden; }
     .petal { position: absolute; width: 10px; height: 14px; background: radial-gradient(ellipse at 40% 40%, #f5c5c5, #e09090 80%); border-radius: 50% 0 50% 0; opacity: 0; animation: fall linear infinite; }
-    @keyframes fall { 0% { transform: translateY(-30px) rotate(0deg); opacity: 0; } 10% { opacity: 0.7; } 90% { opacity: 0.4; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+    @keyframes fall { 0% { transform: translateY(-30px) rotate(0deg); opacity: 0; } 10% { opacity: .7; } 90% { opacity: .4; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
     .hero { position: relative; min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 60px 24px 80px; z-index: 1; }
-    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 20%, rgba(232,196,196,.45) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 80% 80%, rgba(201,169,110,.18) 0%, transparent 60%); pointer-events: none; }
-    .salutation { font-family: 'Sacramento', cursive; font-size: clamp(2.4rem, 7vw, 5rem); color: var(--rose); opacity: 0; transform: translateY(20px); animation: fadeUp .9s ease forwards .3s; line-height: 1.1; }
-    .photo-frame { position: relative; margin: 32px auto; width: clamp(180px, 42vw, 300px); aspect-ratio: 1; opacity: 0; animation: fadeUp .9s ease forwards .6s; }
-    .photo-frame::before, .photo-frame::after { content: ''; position: absolute; border-radius: 50%; border: 1.5px solid var(--gold); }
-    .photo-frame::before { inset: -10px; opacity: .6; }
-    .photo-frame::after { inset: -20px; opacity: .25; }
-    .photo-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 4px solid var(--blush); display: block; box-shadow: 0 8px 40px rgba(122,63,63,.25); }
+    .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 70% 60% at 50% 20%, rgba(232,196,196,.45) 0%, transparent 70%); pointer-events: none; }
+    .salutation { font-family: 'Sacramento', cursive; font-size: clamp(2.4rem,7vw,5rem); color: var(--rose); opacity: 0; transform: translateY(20px); animation: fadeUp .9s ease forwards .3s; }
+    .couple-frame { position: relative; margin: 32px auto; width: clamp(200px,50vw,340px); aspect-ratio: 1; opacity: 0; animation: fadeUp .9s ease forwards .6s; }
+    .couple-frame::before, .couple-frame::after { content: ''; position: absolute; border-radius: 50%; border: 1.5px solid var(--gold); }
+    .couple-frame::before { inset: -10px; opacity: .6; }
+    .couple-frame::after  { inset: -20px; opacity: .25; }
+    .couple-frame img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; border: 4px solid var(--blush); display: block; box-shadow: 0 8px 40px rgba(122,63,63,.25); }
     .pulse-ring { position: absolute; inset: -30px; border-radius: 50%; border: 2px solid var(--rose); opacity: 0; animation: pulseRing 2.8s ease-out infinite 1.8s; }
     @keyframes pulseRing { 0% { transform: scale(.9); opacity: .6; } 100% { transform: scale(1.3); opacity: 0; } }
-    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem, 6vw, 4rem); font-weight: 300; line-height: 1.15; color: var(--deep); max-width: 620px; opacity: 0; animation: fadeUp .9s ease forwards .9s; }
+    .hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem,5.5vw,3.5rem); font-weight: 300; line-height: 1.2; color: var(--deep); max-width: 640px; opacity: 0; animation: fadeUp .9s ease forwards .9s; }
     .hero-title em { font-style: italic; color: var(--rose); }
-    .hero-sub { margin-top: 18px; font-size: clamp(.9rem, 2.5vw, 1.05rem); color: #8a5c5c; letter-spacing: .06em; opacity: 0; animation: fadeUp .9s ease forwards 1.1s; }
-    .scroll-hint { margin-top: 56px; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeUp .9s ease forwards 1.5s; color: var(--rose); font-size: .78rem; letter-spacing: .12em; text-transform: uppercase; }
+    .hero-sub { margin-top: 18px; font-size: 1rem; color: #8a5c5c; opacity: 0; animation: fadeUp .9s ease forwards 1.1s; }
+    .scroll-hint { margin-top: 56px; display: flex; flex-direction: column; align-items: center; gap: 8px; opacity: 0; animation: fadeUp .9s ease forwards 1.5s; color: var(--rose); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
     .scroll-hint .arrow { width: 1px; height: 50px; background: linear-gradient(var(--rose), transparent); animation: arrowPulse 1.5s ease-in-out infinite; }
     @keyframes arrowPulse { 0%,100% { opacity: .4; } 50% { opacity: 1; } }
     @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
-    section { position: relative; z-index: 1; max-width: 700px; margin: 0 auto; padding: 80px 28px; }
+    section { position: relative; z-index: 1; max-width: 720px; margin: 0 auto; padding: 80px 28px; }
     .divider { display: flex; align-items: center; gap: 16px; margin-bottom: 40px; }
     .divider-line { flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--blush)); }
     .divider-line.r { background: linear-gradient(to left, transparent, var(--blush)); }
     .divider-heart { color: var(--rose); font-size: 1rem; animation: heartbeat 1.6s ease-in-out infinite; }
     @keyframes heartbeat { 0%,100% { transform: scale(1); } 14% { transform: scale(1.3); } 28% { transform: scale(1); } 42% { transform: scale(1.2); } }
     .section-label { font-family: 'Sacramento', cursive; font-size: 2.2rem; color: var(--gold); margin-bottom: 16px; display: block; }
-    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem, 4.5vw, 2.6rem); font-weight: 300; color: var(--deep); line-height: 1.25; margin-bottom: 20px; }
-    p { font-size: clamp(.9rem, 2.4vw, 1.05rem); line-height: 1.9; color: #5a3838; margin-bottom: 18px; }
+    h2 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.6rem,4.5vw,2.6rem); font-weight: 300; color: var(--deep); line-height: 1.25; margin-bottom: 20px; }
+    p { font-size: clamp(.9rem,2.4vw,1.05rem); line-height: 1.95; color: #5a3838; margin-bottom: 18px; }
+    .gallery { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; margin-top: 32px; }
+    @media(max-width:480px){ .gallery { grid-template-columns: 1fr; } }
+    .gallery-item { position: relative; aspect-ratio: 1; border-radius: 16px; overflow: hidden; box-shadow: 0 6px 28px rgba(122,63,63,.18); transition: transform .3s, box-shadow .3s; cursor: pointer; }
+    .gallery-item:hover { transform: translateY(-6px) scale(1.03); box-shadow: 0 14px 40px rgba(192,112,110,.35); }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .gallery-item .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(122,63,63,.6), transparent 50%); opacity: 0; transition: opacity .3s; display: flex; align-items: flex-end; padding: 14px; }
+    .gallery-item:hover .overlay { opacity: 1; }
+    .gallery-item .overlay span { color: #fff; font-family: 'Sacramento', cursive; font-size: 1.4rem; }
     .reasons { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 20px; margin-top: 28px; }
-    .reasons li { display: flex; gap: 18px; align-items: flex-start; background: rgba(232,196,196,.18); border: 1px solid rgba(232,196,196,.5); border-radius: 12px; padding: 18px 20px; transition: transform .25s, box-shadow .25s; }
+    .reasons li { display: flex; gap: 18px; align-items: flex-start; background: rgba(232,196,196,.18); border: 1px solid rgba(232,196,196,.5); border-radius: 12px; padding: 18px 20px; transition: transform .25s; }
     .reasons li:hover { transform: translateX(6px); box-shadow: -4px 0 0 var(--rose); }
     .reasons .icon { font-size: 1.4rem; flex-shrink: 0; margin-top: 2px; }
-    .reasons .text { font-size: .98rem; line-height: 1.75; color: #5a3838; }
+    .reasons .text { font-size: .98rem; line-height: 1.8; color: #5a3838; }
     .reasons .text strong { color: var(--deep); font-weight: 400; display: block; margin-bottom: 3px; font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; }
     .letter-card { background: #fff9f5; border: 1px solid var(--blush); border-radius: 18px; padding: 40px 36px; box-shadow: 0 6px 40px rgba(192,112,110,.08); position: relative; overflow: hidden; }
     .letter-card::before { content: '❝'; position: absolute; top: 14px; left: 20px; font-size: 5rem; color: var(--blush); font-family: Georgia, serif; line-height: 1; opacity: .5; }
+    .letter-card p { padding-left: 10px; }
     .letter-sig { margin-top: 28px; text-align: right; font-family: 'Sacramento', cursive; font-size: 2rem; color: var(--rose); }
     .promise-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 28px; }
     @media(max-width:480px){ .promise-grid { grid-template-columns: 1fr; } }
@@ -57,10 +63,10 @@
     .promise-card:hover { transform: translateY(-4px); }
     .promise-card .p-icon { font-size: 1.7rem; margin-bottom: 10px; }
     .promise-card .p-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--deep); margin-bottom: 6px; }
-    .promise-card .p-body { font-size: .88rem; color: #7a5050; line-height: 1.7; }
+    .promise-card .p-body { font-size: .88rem; color: #7a5050; line-height: 1.75; }
     .cta-section { text-align: center; padding-bottom: 120px; }
     .btn-group { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
-    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 34px; border-radius: 50px; font-family: 'Jost', sans-serif; font-size: .95rem; letter-spacing: .08em; cursor: pointer; transition: transform .2s, box-shadow .2s; border: none; }
+    .btn { display: inline-flex; align-items: center; gap: 10px; padding: 14px 34px; border-radius: 50px; font-family: 'Jost', sans-serif; font-size: .95rem; cursor: pointer; transition: transform .2s, box-shadow .2s; border: none; }
     .btn-primary { background: linear-gradient(135deg, var(--rose), var(--deep)); color: #fff; box-shadow: 0 6px 28px rgba(192,112,110,.4); }
     .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 36px rgba(192,112,110,.55); }
     .btn-soft { background: transparent; color: var(--rose); border: 1.5px solid var(--blush); }
@@ -71,95 +77,143 @@
     .modal-overlay.open .modal { transform: scale(1); }
     .modal .big-heart { font-size: 4rem; animation: heartbeat 1.2s ease-in-out infinite; }
     .modal h3 { font-family: 'Sacramento', cursive; font-size: 2.8rem; color: var(--rose); margin: 14px 0 10px; }
-    .modal .close-btn { margin-top: 28px; background: none; border: 1.5px solid var(--blush); padding: 10px 28px; border-radius: 50px; font-family: 'Jost', sans-serif; color: var(--rose); cursor: pointer; }
+    .modal p { font-size: .95rem; color: #7a5050; line-height: 1.85; }
+    .modal .close-btn { margin-top: 28px; background: none; border: 1.5px solid var(--blush); padding: 10px 28px; border-radius: 50px; color: var(--rose); cursor: pointer; font-size: .9rem; }
+    .lightbox { position: fixed; inset: 0; z-index: 200; background: rgba(30,10,10,.88); display: flex; align-items: center; justify-content: center; opacity: 0; pointer-events: none; transition: opacity .3s; }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox img { max-width: 90vw; max-height: 85vh; border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+    .lightbox .lb-close { position: absolute; top: 20px; right: 28px; font-size: 2rem; color: #fff; cursor: pointer; opacity: .7; }
     footer { text-align: center; padding: 30px 20px 50px; font-size: .8rem; color: #b89090; letter-spacing: .08em; }
     .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s ease, transform .8s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
   </style>
 </head>
 <body>
+
 <div class="petals" id="petals"></div>
+
 <div class="hero">
-  <div class="salutation">For Srijana Aksriju</div>
-  <div class="photo-frame">
+  <div class="salutation">Priya Srijana Aka sriju lai</div>
+  <div class="couple-frame">
     <div class="pulse-ring"></div>
-    <img src="hello.jpg" alt="Srijana"/>
+    <img src="hello.jpg" alt="Hami Duitai"/>
   </div>
-  <h1 class="hero-title">I'm asking for<br><em>one last chance</em><br>to love you right.</h1>
-  <p class="hero-sub">Please read this with the heart I wrote it with.</p>
-  <div class="scroll-hint"><span>scroll down</span><div class="arrow"></div></div>
+  <h1 class="hero-title">Maile timilai dherai<br><em>maya garchu</em>,<br>ek palta maaf gara na...</h1>
+  <p class="hero-sub">Yo mutu le lekheko chha — please heart le padha.</p>
+  <div class="scroll-hint"><span>tala hera</span><div class="arrow"></div></div>
 </div>
 
 <section class="reveal">
   <div class="divider"><span class="divider-line"></span><span class="divider-heart">♥</span><span class="divider-line r"></span></div>
-  <span class="section-label">why I miss you</span>
-  <h2>You are irreplaceable, Srijana.</h2>
-  <p>There is no version of my world that feels complete without you in it.</p>
+  <span class="section-label">Mero Srijana</span>
+  <h2>Timro harak photo le mero din banaucha.</h2>
+  <p>Timi dherai sundar chhau — baahira pani, bhitra pani. Yo duniyaa ma timi jastai koi chhainna.</p>
+  <div class="gallery">
+    <div class="gallery-item" onclick="openLightbox('s.jpg')">
+      <img src="s.jpg" alt="Srijana"/>
+      <div class="overlay"><span>Srijana ♥</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox('r.jpg')">
+      <img src="r.jpg" alt="Srijana"/>
+      <div class="overlay"><span>Meri rani ♥</span></div>
+    </div>
+    <div class="gallery-item" onclick="openLightbox('i.jpg')">
+      <img src="i.jpg" alt="Srijana"/>
+      <div class="overlay"><span>Mero sab kuch ♥</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="reveal">
+  <div class="divider"><span class="divider-line"></span><span class="divider-heart">♥</span><span class="divider-line r"></span></div>
+  <span class="section-label">Kina miss garchu</span>
+  <h2>Timi bina yo zindagi adhuro lagcha, Srijana.</h2>
+  <p>Timilai bhulna khojchu, tara timro yaad aaucha — bihana uthda, raatma sutda, har pal ma. Timro jagah kohi lina sakdaina.</p>
   <ul class="reasons">
-    <li><span class="icon">🌸</span><div class="text"><strong>Your laugh</strong>The one you try to hide but can't. It's the most beautiful sound I've ever known.</div></li>
-    <li><span class="icon">🌙</span><div class="text"><strong>The way you see the world</strong>Your warmth and perspective made everything softer and more meaningful.</div></li>
-    <li><span class="icon">🤝</span><div class="text"><strong>Our conversations</strong>The ones that went on for hours. I've never talked with anyone the way I talked with you.</div></li>
-    <li><span class="icon">💫</span><div class="text"><strong>Who I became with you</strong>You made me want to be better — because you deserved the best version of me.</div></li>
+    <li><span class="icon">🌸</span><div class="text"><strong>Timro hasi</strong>Timi jaba hanchha, sab kuch ramro lagcha. Yo hasi feri dekha paiyos bhanera kitai palta sochu.</div></li>
+    <li><span class="icon">🌙</span><div class="text"><strong>Timro swabhav</strong>Timro mamata, timro caring nature — yo duniya ma yasto kohi hunna. Timi ekdam special chha.</div></li>
+    <li><span class="icon">💬</span><div class="text"><strong>Hamro kura kani</strong>Hami ghanta ghanta kura garnu hunchha thiyo — tyo time feri firkiyos bhancha man.</div></li>
+    <li><span class="icon">💫</span><div class="text"><strong>Timi sangai ma ramro bane</strong>Timile malai better banayo — simply timro saath ma rahera.</div></li>
   </ul>
 </section>
 
 <section class="reveal">
   <div class="divider"><span class="divider-line"></span><span class="divider-heart">♥</span><span class="divider-line r"></span></div>
-  <span class="section-label">from my heart</span>
-  <h2>A letter I couldn't stop writing.</h2>
+  <span class="section-label">Mero man ko kura</span>
+  <h2>Yo chithi lekhna rokina sakena.</h2>
   <div class="letter-card">
-    <p>Srijana,</p>
-    <p>I know I hurt you. I know that sorry doesn't undo the pain, and I'm not here to make excuses. I'm here because I love you — genuinely, deeply — and I refuse to let us end without being honest about that.</p>
-    <p>I've spent every day thinking about what I should have done differently. You deserve someone who shows up completely, and I want that someone to be me.</p>
-    <p>If you give me this chance, I will spend every day making sure you never regret it.</p>
-    <div class="letter-sig">Yours, always ♥</div>
+    <p>Priya Srijana,</p>
+    <p>Maile timilai dukha diye — yo thaha cha malai. Sorry le sab kuch thik hudaina, ani maile bahana dina aako hoina. Maile aako chhu kinabhane ma timro lagi sach ma feel garchu — gahiro maya, sachcho feeling.</p>
+    <p>Timi bina baaschhu tara jindagi khali lagcha. Timle relationship nai nachaheko bhane pani — kam se kam mero saathi bana. Ma timro life ma burden banna chahanna, tara timro baata tada janu pani sakdina.</p>
+    <p>Maile galti gare, dherai galti gare. Tara ma change bhayeko chhu. Timile ek palta mauka diyau bhane, ma prove garchu ki timi mero lagi sab bhandaa thulo kura ho.</p>
+    <p>Timilai force gardina — tara timro mann le bhancha bhane, please malai ek chance deu.</p>
+    <div class="letter-sig">Sadaiva timro ♥</div>
   </div>
 </section>
 
 <section class="reveal">
   <div class="divider"><span class="divider-line"></span><span class="divider-heart">♥</span><span class="divider-line r"></span></div>
-  <span class="section-label">my promises to you</span>
-  <h2>Not just words — a commitment.</h2>
+  <span class="section-label">Mero vachan</span>
+  <h2>Kebal kura hoina — yo mero satya vachan ho.</h2>
   <div class="promise-grid">
-    <div class="promise-card"><div class="p-icon">👂</div><div class="p-title">I will truly listen</div><div class="p-body">Actually listen, understand, and be present for every word you say.</div></div>
-    <div class="promise-card"><div class="p-icon">🛡️</div><div class="p-title">I will protect your peace</div><div class="p-body">Your happiness will always come before my ego or pride.</div></div>
-    <div class="promise-card"><div class="p-icon">🌱</div><div class="p-title">I will grow with you</div><div class="p-body">Every day, I'll choose to be a better partner — in patience, in love.</div></div>
-    <div class="promise-card"><div class="p-icon">💬</div><div class="p-title">I will communicate</div><div class="p-body">Open, honest, vulnerable — always. No more silence or guessing games.</div></div>
+    <div class="promise-card"><div class="p-icon">👂</div><div class="p-title">Ma sunchhu</div><div class="p-body">Timro har kura sunchu, bujhchu, ani timro feelings lai sabse pahile rakhu.</div></div>
+    <div class="promise-card"><div class="p-icon">🛡️</div><div class="p-title">Timro khushi protect garchu</div><div class="p-body">Timro peace ani happiness mero ego bhandaa thulo hunchha — har palta.</div></div>
+    <div class="promise-card"><div class="p-icon">🌱</div><div class="p-title">Sangai badchhu</div><div class="p-body">Har din ma better partner banne koshish garchu — patience ma, maya ma, sab ma.</div></div>
+    <div class="promise-card"><div class="p-icon">💬</div><div class="p-title">Honest rahunga</div><div class="p-body">Sab kura seedha bhanchu — khara, honest, vulnerable. Kuni kura luk audina.</div></div>
   </div>
 </section>
 
 <section class="reveal cta-section">
   <div class="divider"><span class="divider-line"></span><span class="divider-heart">♥</span><span class="divider-line r"></span></div>
-  <span class="section-label">your answer</span>
-  <h2>Will you give us one more chance?</h2>
-  <p>I'll understand whatever you decide. But you are worth every word on this page.</p>
+  <span class="section-label">Timro jawab</span>
+  <h2>Ek palta maaf gardineu ni, Srijana?</h2>
+  <p>Timi jo bhane pani maile accept garchu. Tara timle yo sabai padda — timro mann ma kehi feel bhayecha bhane — please malai ek mauka deu.</p>
   <div class="btn-group">
-    <button class="btn btn-primary" onclick="openYes()">♥ Yes, let's try again</button>
-    <button class="btn btn-soft" onclick="openNo()">I need more time</button>
+    <button class="btn btn-primary" onclick="openYes()">♥ Thik cha, ek mauka diunchu</button>
+    <button class="btn btn-soft" onclick="openNo()">sorry la matra hudaina </button>
   </div>
 </section>
 
 <div class="modal-overlay" id="yesModal">
-  <div class="modal"><div class="big-heart">💖</div><h3>Thank you, Srijana!</h3><p>You've made me the happiest person in the world. I promise you will never regret this. 🌸</p><button class="close-btn" onclick="closeModal('yesModal')">Close</button></div>
-</div>
-<div class="modal-overlay" id="noModal">
-  <div class="modal"><div class="big-heart">🕊️</div><h3>I understand.</h3><p>Take all the time you need. I'll be here whenever you're ready to talk. 💛</p><button class="close-btn" onclick="closeModal('noModal')">Close</button></div>
+  <div class="modal">
+    <div class="big-heart">💖</div>
+    <h3>thank you so muchhhhhhhh, Srijana!</h3>
+    <p>Timile mero jindagi ko sabse khushi ko pal diyau. Ma kasam khanchhu — timile kahila pachtaunu pardaina. Haami saangai ek sundar naya adhyaya suru garau. I will try my best babes 🌸</p>
+    <button class="close-btn" onclick="closeModal('yesModal')">Thik cha</button>
+  </div>
 </div>
 
-<footer>Made with love, for Srijana Aksriju ♥</footer>
+<div class="modal-overlay" id="noModal">
+  <div class="modal">
+    <div class="big-heart">🕊️</div>
+    <h3>Bujhchu, Srijana.</h3>
+    <p>Jati time chahiye leu. Ma yahaan chhu — force garna hoina, tara kura garna mann lagyo bhane ma sunna tayaar chhu.
+      ani maila ka garam tyo ni bhndeu hussss 💛</p>
+    <button class="close-btn" onclick="closeModal('noModal')">Thik cha</button>
+  </div>
+</div>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <span class="lb-close">✕</span>
+  <img id="lbImg" src="" alt=""/>
+</div>
+
+<footer> man bhari maya le banayeko —  srijuuu ko lagi ♥</footer>
 
 <script>
   const pc = document.getElementById('petals');
-  for (let i = 0; i < 18; i++) {
+  for (let i = 0; i < 22; i++) {
     const p = document.createElement('div'); p.className = 'petal';
-    p.style.cssText = `left:${Math.random()*100}%;width:${6+Math.random()*10}px;height:${9+Math.random()*10}px;animation-duration:${6+Math.random()*8}s;animation-delay:${Math.random()*10}s;`;
+    p.style.cssText = `left:${Math.random()*100}%;width:${6+Math.random()*10}px;height:${9+Math.random()*10}px;animation-duration:${6+Math.random()*9}s;animation-delay:${Math.random()*12}s;`;
     pc.appendChild(p);
   }
-  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold:.12});
+  const obs = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('visible'); }), {threshold:.1});
   document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
   function openYes() { document.getElementById('yesModal').classList.add('open'); }
   function openNo()  { document.getElementById('noModal').classList.add('open'); }
   function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+  function openLightbox(src) { document.getElementById('lbImg').src = src; document.getElementById('lightbox').classList.add('open'); }
+  function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
 </script>
 </body>
 </html>
